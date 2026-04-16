@@ -8,22 +8,33 @@
     name="description"
     content="Персональная страница с контактами: Telegram, VK, почта и MAX."
   />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #f7f5ef;
-      --bg-soft: #fbfaf7;
+      --bg: #f6f3ed;
+      --bg-2: #f8f7f3;
       --surface: rgba(255, 255, 255, 0.72);
-      --surface-strong: rgba(255, 255, 255, 0.88);
-      --border: rgba(43, 49, 62, 0.12);
-      --text: #202430;
-      --muted: #5f6778;
+      --surface-strong: rgba(255, 255, 255, 0.9);
+      --surface-soft: rgba(255, 255, 255, 0.58);
+      --border: rgba(33, 41, 57, 0.12);
+      --border-strong: rgba(14, 107, 111, 0.18);
+      --text: #1e2430;
+      --muted: #5f6878;
       --accent: #0e6b6f;
-      --accent-2: #284b8a;
+      --accent-2: #325695;
+      --accent-soft: rgba(14, 107, 111, 0.08);
       --shadow: 0 24px 80px rgba(34, 39, 50, 0.12);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --max-width: 1120px;
+      --shadow-soft: 0 16px 36px rgba(34, 39, 50, 0.08);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max-width: 1140px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -32,20 +43,24 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at top left, rgba(14, 107, 111, 0.10), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(40, 75, 138, 0.10), transparent 28%),
-        radial-gradient(circle at 50% 100%, rgba(14, 107, 111, 0.08), transparent 28%),
-        linear-gradient(135deg, #f6f3ec 0%, #f8f7f3 42%, #f2f6f8 100%);
+        radial-gradient(circle at 85% 15%, rgba(50, 86, 149, 0.10), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(14, 107, 111, 0.07), transparent 28%),
+        linear-gradient(135deg, #f6f3ec 0%, #f8f7f3 42%, #eef4f7 100%);
       overflow-x: hidden;
       position: relative;
+      line-height: 1.6;
     }
 
     body::before,
@@ -58,55 +73,56 @@
     }
 
     body::before {
-      opacity: 0.34;
+      opacity: 0.3;
       background-image:
         url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'>\
-  <rect width='520' height='520' fill='none'/>\
-  <g stroke='%23364b6b' stroke-opacity='0.16' fill='none'>\
-    <circle cx='88' cy='88' r='54' stroke-width='1.4'/>\
-    <circle cx='88' cy='88' r='8' stroke-width='1.2'/>\
-    <path d='M44 88H132M88 44V132' stroke-width='1.2'/>\
-    <path d='M210 54 L262 132 L158 132 Z' stroke-width='1.4'/>\
-    <path d='M324 48 C344 80 344 118 324 150' stroke-width='1.5'/>\
-    <path d='M352 48 C372 80 372 118 352 150' stroke-width='1.5'/>\
-    <path d='M380 48 C400 80 400 118 380 150' stroke-width='1.5'/>\
-    <path d='M62 242 C92 198 144 198 174 242 C204 286 256 286 286 242 C316 198 368 198 398 242' stroke-width='1.5'/>\
-    <path d='M56 270 H404' stroke-width='1' stroke-dasharray='5 7'/>\
-    <path d='M84 324 Q126 282 168 324 T252 324 T336 324 T420 324' stroke-width='1.4'/>\
-    <path d='M78 424 L144 358 L210 424 L276 358 L342 424 L408 358' stroke-width='1.3'/>\
+<svg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'>\
+  <rect width='560' height='560' fill='none'/>\
+  <g stroke='%23384c70' stroke-opacity='0.15' fill='none'>\
+    <circle cx='92' cy='92' r='56' stroke-width='1.4'/>\
+    <circle cx='92' cy='92' r='8' stroke-width='1.2'/>\
+    <path d='M46 92H138M92 46V138' stroke-width='1.15'/>\
+    <path d='M198 64 L270 136 L126 136 Z' stroke-width='1.35'/>\
+    <path d='M346 56 C366 88 366 128 346 160' stroke-width='1.45'/>\
+    <path d='M376 56 C396 88 396 128 376 160' stroke-width='1.45'/>\
+    <path d='M406 56 C426 88 426 128 406 160' stroke-width='1.45'/>\
+    <path d='M58 250 C90 202 146 202 178 250 C210 298 266 298 298 250 C330 202 386 202 418 250' stroke-width='1.45'/>\
+    <path d='M54 282 H424' stroke-width='1' stroke-dasharray='5 7'/>\
+    <path d='M82 344 Q128 298 174 344 T266 344 T358 344 T450 344' stroke-width='1.4'/>\
+    <path d='M74 454 L146 382 L218 454 L290 382 L362 454 L434 382' stroke-width='1.25'/>\
+    <path d='M170 486 C204 460 236 460 270 486' stroke-width='1.2'/>\
   </g>\
-  <g fill='%230e6b6f' fill-opacity='0.16' font-family='Georgia, serif'>\
-    <text x='188' y='206' font-size='30'>∫</text>\
-    <text x='226' y='208' font-size='24'>Σ</text>\
-    <text x='262' y='208' font-size='26'>π</text>\
-    <text x='298' y='208' font-size='24'>λ</text>\
-    <text x='334' y='208' font-size='24'>∞</text>\
-    <text x='66' y='494' font-size='22'>a²+b²=c²</text>\
-    <text x='292' y='490' font-size='22'>eᶦπ+1=0</text>\
+  <g fill='%230e6b6f' fill-opacity='0.14' font-family='Georgia, serif'>\
+    <text x='196' y='212' font-size='30'>∫</text>\
+    <text x='232' y='214' font-size='24'>Σ</text>\
+    <text x='266' y='214' font-size='26'>π</text>\
+    <text x='302' y='214' font-size='24'>λ</text>\
+    <text x='336' y='214' font-size='24'>∞</text>\
+    <text x='70' y='522' font-size='21'>a²+b²=c²</text>\
+    <text x='304' y='520' font-size='21'>eᶦπ+1=0</text>\
   </g>\
 </svg>");
-      background-size: 520px 520px;
+      background-size: 560px 560px;
       background-position: center;
     }
 
     body::after {
       background:
-        linear-gradient(rgba(255,255,255,0.28), rgba(255,255,255,0.28)),
+        linear-gradient(rgba(255,255,255,0.24), rgba(255,255,255,0.24)),
         repeating-linear-gradient(
           90deg,
           transparent 0,
-          transparent 79px,
-          rgba(54, 75, 107, 0.035) 80px
+          transparent 95px,
+          rgba(56, 76, 112, 0.03) 96px
         ),
         repeating-linear-gradient(
           0deg,
           transparent 0,
-          transparent 79px,
-          rgba(54, 75, 107, 0.035) 80px
+          transparent 95px,
+          rgba(56, 76, 112, 0.03) 96px
         );
-      mask-image: radial-gradient(circle at center, black 40%, transparent 92%);
-      opacity: 0.65;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+      opacity: 0.7;
     }
 
     .page {
@@ -121,7 +137,7 @@
     .shell {
       width: min(100%, var(--max-width));
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.12fr 0.88fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -144,7 +160,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.30), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.34), transparent 32%),
         radial-gradient(circle at top right, rgba(14, 107, 111, 0.08), transparent 26%);
       pointer-events: none;
     }
@@ -153,7 +169,7 @@
     .contacts-inner {
       position: relative;
       z-index: 1;
-      padding: 34px;
+      padding: 36px;
     }
 
     .eyebrow {
@@ -181,19 +197,35 @@
 
     h1 {
       margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 0.98;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 5vw, 5.1rem);
+      line-height: 0.92;
       letter-spacing: -0.03em;
-      max-width: 10ch;
+      max-width: 9ch;
+      text-wrap: balance;
     }
 
-    .lead {
-      margin: 22px 0 0;
-      max-width: 58ch;
-      font-size: 1.05rem;
-      line-height: 1.75;
+    .subtitle {
+      margin-top: 16px;
+      font-size: 0.98rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .bio {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+      max-width: 62ch;
+    }
+
+    .bio p {
+      margin: 0;
       color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.82;
     }
 
     .math-strip {
@@ -206,26 +238,46 @@
     .math-chip {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(40, 75, 138, 0.06);
-      border: 1px solid rgba(40, 75, 138, 0.10);
+      background: rgba(50, 86, 149, 0.06);
+      border: 1px solid rgba(50, 86, 149, 0.1);
       color: #35517f;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
     }
 
     .panel-title {
       margin: 0 0 8px;
-      font-size: 1.45rem;
-      font-weight: 700;
+      font-size: 1.55rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
 
     .panel-text {
-      margin: 0 0 24px;
+      margin: 0 0 26px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.72;
       font-size: 0.98rem;
       max-width: 38ch;
+    }
+
+    .mini-badge {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(43, 49, 62, 0.08);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
     }
 
     .contact-list {
@@ -234,7 +286,8 @@
     }
 
     .contact-card {
-      display: flex;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
       align-items: center;
       gap: 14px;
       padding: 16px 18px;
@@ -243,30 +296,33 @@
       color: inherit;
       background: var(--surface-strong);
       border: 1px solid rgba(43, 49, 62, 0.08);
+      box-shadow: var(--shadow-soft);
       transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease,
-        background 0.18s ease;
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background var(--transition);
     }
 
-    .contact-card:hover {
+    .contact-card:hover,
+    .contact-card:focus-visible {
       transform: translateY(-2px);
-      box-shadow: 0 18px 28px rgba(34, 39, 50, 0.10);
-      border-color: rgba(14, 107, 111, 0.20);
-      background: rgba(255,255,255,0.95);
+      box-shadow: 0 20px 32px rgba(34, 39, 50, 0.10);
+      border-color: var(--border-strong);
+      background: rgba(255,255,255,0.96);
+      outline: none;
     }
 
     .icon-wrap {
       width: 48px;
       height: 48px;
-      flex: 0 0 48px;
       display: grid;
       place-items: center;
       border-radius: 14px;
       background:
-        linear-gradient(135deg, rgba(14,107,111,0.11), rgba(40,75,138,0.10));
+        linear-gradient(135deg, rgba(14,107,111,0.11), rgba(50,86,149,0.10));
       color: var(--accent);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.42);
     }
 
     .contact-meta {
@@ -283,25 +339,45 @@
     .contact-value {
       display: block;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       overflow-wrap: anywhere;
+      line-height: 1.35;
+    }
+
+    .contact-arrow {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(14, 107, 111, 0.06);
+      color: var(--accent);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .contact-card:hover .contact-arrow,
+    .contact-card:focus-visible .contact-arrow {
+      transform: translateX(2px);
+      background: rgba(14, 107, 111, 0.1);
     }
 
     .footer-note {
       margin-top: 22px;
-      font-size: 0.88rem;
+      padding-top: 18px;
+      border-top: 1px solid rgba(43, 49, 62, 0.08);
+      font-size: 0.9rem;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .ornament-corner {
       position: absolute;
-      right: -38px;
-      bottom: -38px;
-      width: 180px;
-      height: 180px;
+      right: -42px;
+      bottom: -42px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
-      border: 1px dashed rgba(40, 75, 138, 0.18);
+      border: 1px dashed rgba(50, 86, 149, 0.18);
       opacity: 0.75;
     }
 
@@ -315,8 +391,26 @@
     }
 
     .ornament-corner::after {
-      inset: 52px;
+      inset: 54px;
       border-style: dashed;
+    }
+
+    .hero-formula {
+      margin-top: 28px;
+      padding: 16px 18px;
+      max-width: 380px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(43, 49, 62, 0.08);
+      color: #4f596d;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.48);
+    }
+
+    .hero-formula strong {
+      color: var(--text);
+      font-weight: 700;
     }
 
     .sr-only {
@@ -337,7 +431,7 @@
       }
 
       h1 {
-        max-width: 12ch;
+        max-width: 11ch;
       }
     }
 
@@ -352,21 +446,48 @@
       }
 
       h1 {
-        font-size: clamp(2.1rem, 11vw, 3.4rem);
+        font-size: clamp(2.5rem, 11vw, 3.7rem);
       }
 
-      .lead {
+      .bio p {
         font-size: 1rem;
       }
 
       .contact-card {
+        grid-template-columns: 44px 1fr;
         padding: 14px;
       }
 
       .icon-wrap {
         width: 44px;
         height: 44px;
-        flex-basis: 44px;
+      }
+
+      .contact-arrow {
+        display: none;
+      }
+
+      .math-strip {
+        gap: 10px;
+      }
+
+      .math-chip {
+        font-size: 0.88rem;
+      }
+
+      .mini-badge {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -382,28 +503,48 @@
           </div>
 
           <h1>Владимир Крещик</h1>
+          <div class="subtitle">Математика · преподавание · теория графов</div>
 
-          <p class="lead">
-            Студент 3 курса ПМИ.мат МФТИ. Преподаватель олимпиадной математики в образовательном центре "Взлёт" и в "Физтех-лицее" им.
-            П.Л. Капицы. Занимаюсь научной деятельностью в области теории графов. <p class="lead">
+          <div class="bio">
+            <p>
+              Студент 3 курса ПМИ.мат МФТИ. Преподаватель олимпиадной математики в образовательном центре «Взлёт»
+              и в «Физтех-лицее» им. П. Л. Капицы. Занимаюсь научной деятельностью в области теории графов.
+            </p>
+            <p>
+              Родной город — Иркутск. Люблю книги, прогулки и готовить что-то вкусное. В свободное время
+              часто смотрю самые разные фильмы.
+            </p>
+          </div>
 
-            Родной город - Иркутск. Люблю книги, гулять и готовить что-то вкусное. В свободное время часто смотрю разнообразные фильмы.
-            
-          </p>
+          <div class="math-strip" aria-label="Темы и интересы">
+            <span class="math-chip">Теория графов</span>
+            <span class="math-chip">Олимпиадная математика</span>
+            <span class="math-chip">Преподавание</span>
+            <span class="math-chip">Исследования</span>
+          </div>
 
+          <div class="hero-formula">
+            <strong>Математика для меня</strong> — это одновременно строгий язык, способ думать
+            и источник красивых идей.
+          </div>
         </div>
         <div class="ornament-corner" aria-hidden="true"></div>
       </article>
 
       <aside class="contacts">
         <div class="contacts-inner">
-          <h2 class="panel-title">Контакты</h2>
-          <p class="panel-text">
-            Актуальные способы для связи со мной.
-          </p>
+          <div class="panel-head">
+            <div>
+              <h2 class="panel-title">Контакты</h2>
+              <p class="panel-text">
+                Актуальные способы связи со мной. Быстрее всего отвечаю в мессенджерах.
+              </p>
+            </div>
+            <div class="mini-badge">Обычно онлайн 8:00–22:00</div>
+          </div>
 
           <div class="contact-list">
-            <a class="contact-card" href="https://t.me/vladimir_kreshchik" target="_blank" rel="noopener noreferrer">
+            <a class="contact-card" href="https://t.me/vladimir_kreshchik" target="_blank" rel="noopener noreferrer" aria-label="Открыть Telegram Владимира Крещика">
               <span class="icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <path d="M21.2 4.8L18 19.2C17.76 20.22 17.13 20.47 16.26 19.99L11.6 16.55L9.35 18.72C9.1 18.97 8.9 19.17 8.42 19.17L8.75 14.43L17.39 6.62C17.77 6.28 17.31 6.09 16.81 6.42L6.13 13.15L1.53 11.71C0.53 11.39 0.51 10.7 1.74 10.22L19.73 3.29C20.56 2.99 21.28 3.48 21.2 4.8Z" fill="currentColor"/>
@@ -413,9 +554,14 @@
                 <span class="contact-label">Telegram</span>
                 <span class="contact-value">@vladimir_kreshchik</span>
               </span>
+              <span class="contact-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
 
-            <a class="contact-card" href="https://vk.com/big_karlik" target="_blank" rel="noopener noreferrer">
+            <a class="contact-card" href="https://vk.com/big_karlik" target="_blank" rel="noopener noreferrer" aria-label="Открыть VK Владимира Крещика">
               <span class="icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <path d="M4.5 7.75C4.67 13.28 7.39 16.6 12.12 16.6H12.39V13.43C14.17 13.61 15.52 14.9 16.06 16.6H18.58C17.89 14.11 16.05 12.73 14.9 12.2C16.05 11.54 17.65 9.94 18.03 7.75H15.74C15.24 9.53 13.77 11.13 12.39 11.28V7.75H10.1V13.93C8.7 13.58 6.93 11.86 6.85 7.75H4.5Z" fill="currentColor"/>
@@ -425,9 +571,14 @@
                 <span class="contact-label">VK</span>
                 <span class="contact-value">vk.com/big_karlik</span>
               </span>
+              <span class="contact-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
 
-            <a class="contact-card" href="mailto:VladimirKreshchik@yandex.ru">
+            <a class="contact-card" href="mailto:VladimirKreshchik@yandex.ru" aria-label="Написать письмо Владимиру Крещику">
               <span class="icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <path d="M4 7.5L11 12.75C11.59 13.19 12.41 13.19 13 12.75L20 7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -438,24 +589,47 @@
                 <span class="contact-label">Почта</span>
                 <span class="contact-value">VladimirKreshchik@yandex.ru</span>
               </span>
+              <span class="contact-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
 
-            <a class="contact-card" href="https://max.ru/" target="_blank" rel="noopener noreferrer">
+            <a class="contact-card" href="https://max.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть страницу MAX">
               <span class="icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 17.5V8.8C6 7.81 6.81 7 7.8 7H9.6L12 10.2L14.4 7H16.2C17.19 7 18 7.81 18 8.8V17.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M8.2 15.5V11.2L12 15.2L15.8 11.2V15.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                  <defs>
+                    <linearGradient id="maxBubbleGradient" x1="5" y1="5" x2="19" y2="19" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#FFC768"/>
+                      <stop offset="55%" stop-color="#FF9E2C"/>
+                      <stop offset="100%" stop-color="#FF7A00"/>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M12 4.5C7.76 4.5 4.75 7.24 4.75 10.88C4.75 12.88 5.66 14.62 7.24 15.82L6.7 18.36C6.62 18.73 7.01 19 7.34 18.82L10.18 17.33C10.77 17.46 11.38 17.52 12 17.52C16.24 17.52 19.25 14.78 19.25 11.14C19.25 7.24 16.24 4.5 12 4.5Z"
+                    fill="url(#maxBubbleGradient)"
+                  />
+                  <path
+                    d="M8.35 13.35V8.95H9.6L12 11.48L14.4 8.95H15.65V13.35H14.4V10.98L12 13.3L9.6 10.98V13.35H8.35Z"
+                    fill="white"
+                  />
                 </svg>
               </span>
               <span class="contact-meta">
                 <span class="contact-label">MAX</span>
                 <span class="contact-value">В разработке</span>
               </span>
+              <span class="contact-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
           </div>
 
           <p class="footer-note">
-            Стараюсь отвечать достаточно быстро с 8:00 до 22:00. Если очень срочно -- звоните
+            Стараюсь отвечать достаточно быстро с 8:00 до 22:00. Если вопрос срочный, лучше писать в Telegram.
           </p>
         </div>
       </aside>
