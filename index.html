@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мои контакты</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f6f6f6;
+      color: #222;
+    }
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      max-width: 420px;
+      width: calc(100% - 32px);
+    }
+    h1 { margin-top: 0; }
+    a { color: #0a66c2; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Ваше имя</h1>
+    <p>Кратко: кто вы и чем занимаетесь.</p>
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    <p>Telegram: <a href="https://t.me/yourusername">@yourusername</a></p>
+    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+  </main>
+</body>
+</html>
